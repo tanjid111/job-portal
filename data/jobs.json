@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Web Developer",
+        "description": "Web developer description 1",
+        "email": "admin@admin.com",
+        "user": {
+            "email": "admin@gmail.com",
+            "id": "635638463ebe730568ae79ec"
+        }
+    },
+    {
+        "name": "Software Developer",
+        "description": "Software Developer Description 1.",
+        "email": "admin@admin.com",
+        "user": {
+            "email": "admin@gmail.com",
+            "id": "635638463ebe730568ae79ec"
+        }
+    },
+    {
+        "name": "React Developer",
+        "description": "React Developer description 1",
+        "email": "admin@admin.com",
+        "user": {
+            "email": "admin@gmail.com",
+            "id": "635638463ebe730568ae79ec"
+        }
+    }
+]
