@@ -2,28 +2,78 @@
     {
         "name": "Web Developer",
         "description": "Web developer description 1",
-        "email": "admin@admin.com",
-        "user": {
-            "email": "admin@gmail.com",
-            "id": "635638463ebe730568ae79ec"
-        }
+        "email": "info@web-hr.com",
+        "hiringManager": {
+            "id": "6357a020c2545e4a609cfd31"
+        },
+        "location": "dhaka",
+        "jobType": "remote",
+        "salary": 20000
     },
     {
         "name": "Software Developer",
         "description": "Software Developer Description 1.",
-        "email": "admin@admin.com",
-        "user": {
-            "email": "admin@gmail.com",
-            "id": "635638463ebe730568ae79ec"
-        }
+        "email": "info@web-hr.com",
+        "hiringManager": {
+            "id": "6357a020c2545e4a609cfd31"
+        },
+        "location": "chittagong",
+        "jobType": "remote",
+        "salary": 35000
     },
     {
         "name": "React Developer",
         "description": "React Developer description 1",
-        "email": "admin@admin.com",
-        "user": {
-            "email": "admin@gmail.com",
-            "id": "635638463ebe730568ae79ec"
-        }
+        "email": "info@web-hr.com",
+        "hiringManager": {
+            "id": "6357a020c2545e4a609cfd31"
+        },
+        "location": "Sylhet",
+        "jobType": "hybrid",
+        "salary": 25000
+    },
+    {
+        "name": "C# Developer",
+        "description": "C# Developer description 1",
+        "email": "info@web-hr.com",
+        "hiringManager": {
+            "id": "6357a020c2545e4a609cfd31"
+        },
+        "location": "Chittagong",
+        "jobType": "in-person",
+        "salary": 15000
+    },
+    {
+        "name": ".Net Developer",
+        "description": ".Net Developer description 1",
+        "email": "info@web-hr.com",
+        "hiringManager": {
+            "id": "6357a02ac2545e4a609cfd33"
+        },
+        "location": "Rangamati",
+        "jobType": "in-person",
+        "salary": 32500
+    },
+    {
+        "name": "Full Stack Developer",
+        "description": "Full Stack Developer description 1",
+        "email": "info@web-hr.com",
+        "hiringManager": {
+            "id": "6357a02ac2545e4a609cfd33"
+        },
+        "location": "Coxs-Bazar",
+        "jobType": "remote",
+        "salary": 22500
+    },
+    {
+        "name": "C++ Developer",
+        "description": "C++ Stack Developer description 1",
+        "email": "info@web-hr.com",
+        "hiringManager": {
+            "id": "6357a02ac2545e4a609cfd33"
+        },
+        "location": "Comilla",
+        "jobType": "hybrid",
+        "salary": 28500
     }
 ]

@@ -5,7 +5,7 @@ const uploader = require('../middlewares/uploader');
 const verifyToken = require('../middlewares/verifyToken');
 const authorization = require('../middlewares/authorization')
 
-// router.use(verifyToken) //to verify token for all the routes below.
+
 
 //single file
 router.post('/jobs/:id/apply', uploader.single('doc'), jobController.fileUpload);

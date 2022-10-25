@@ -1,15 +1,10 @@
 const { signupService, findUserByEmail } = require("../services/user.service");
 const { generateToken } = require("../utils/token");
 
-// const { generateToken } = require("../utils/token")
 
 exports.signup = async (req, res) => {
     try {
         const user = await signupService(req.body)
-        // const token = user.generateConfirmationToken();
-
-        // await user.save({ validateBeforeSave: false });
-
 
         res.status(200).json({
             status: 'success',
@@ -83,45 +78,3 @@ exports.getMe = async (req, res) => {
         })
     }
 }
-
-// exports.confirmEmail = async (req, res) => {
-//     try {
-//         const { token } = req.params;
-
-
-//         const user = await findUserByToken(token);
-
-//         if (!user) {
-//             return res.status(403).json({
-//                 status: "fail",
-//                 error: "Invalid token"
-//             });
-//         }
-
-//         const expired = new Date() > new Date(user.confirmationTokenExpires);
-
-//         if (expired) {
-//             return res.status(401).json({
-//                 status: "fail",
-//                 error: "Token expired"
-//             });
-//         }
-
-//         user.status = "active";
-//         user.confirmationToken = undefined;
-//         user.confirmationTokenExpires = undefined;
-
-//         user.save({ validateBeforeSave: false });
-
-//         res.status(200).json({
-//             status: "success",
-//             message: "Successfully activated your account.",
-//         });
-//     } catch (error) {
-//         console.log(error);
-//         res.status(500).json({
-//             status: "fail",
-//             error,
-//         });
-//     }
-// };

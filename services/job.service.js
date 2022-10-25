@@ -15,9 +15,6 @@ exports.getJobsService = async (filters, queries) => {
 }
 
 exports.getJobsByManagerService = async (id) => {
-    // const user = await User.findOne({ email })
-    // const job = await Job.findById(id);
-    // const user = await User.findById(id);
     const user = await User.find({ _id: id }).populate('jobs');
 
     return user;
@@ -26,24 +23,24 @@ exports.getJobsByManagerService = async (id) => {
 exports.getAJobService = async (id, adminId) => {
     const job = await Job.findById({ _id: id }).populate('candidates');
 
-    if (adminId !== job?.user?.id.toString()) {
+    if (adminId !== job?.hiringManager?.id.toString()) {
         return error;
     }
     return job;
 }
 
 exports.getACandidateJobService = async (id, adminId) => {
-    const job = await Job.findById({ _id: id });
+    const job = await Job.findById({ _id: id }).populate('hiringManager.id');
     return job;
 }
 
 exports.createJobService = async (data) => {
     const job = await Job.create(data);
 
-    const { _id: jobId, user } = job;
+    const { _id: jobId, hiringManager } = job;
     //update user
     const res = await User.updateOne(
-        { _id: user.id },
+        { _id: hiringManager.id },
         { $push: { jobs: jobId } }
     )
     return job;
@@ -53,7 +50,7 @@ exports.updateJobByIdService = async (jobId, data, adminId) => {
     const result = await Job.updateOne({ _id: jobId }, { $set: data }, { runValidators: true }); //to validate 
     const job = await Job.findById(jobId);
 
-    if (adminId !== job?.user?.id.toString()) {
+    if (adminId !== job?.hiringManager?.id.toString()) {
         return error;
     }
     return result;
@@ -66,7 +63,7 @@ exports.deleteJobByIdService = async (id) => {
 
 
 exports.applyJobById = async (jobId, data, userId) => {
-    // const job = await Job.findOneAndUpdate({ _id: jobId }, { $set: data })
+
     const job = await Job.findById({ _id: jobId });
     const { candidates } = job
     const present = candidates.indexOf(userId);
@@ -81,9 +78,3 @@ exports.applyJobById = async (jobId, data, userId) => {
 
     return error;
 }
-
-
-// exports.candidateResumeService = async (jobId, fileLocation) =>{
-
-
-// }

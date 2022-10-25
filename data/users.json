@@ -1,10 +1,62 @@
-{
-    "email": "tanjidhossain@gmail.com",
-    "password": "Ubc!234",
-    "confirmPassword": "Ubc!234",
-    "role": "admin",
-    "firstName": "Syed",
-    "lastName": "Hossain",
-    "contactNumber": "12345678",
-    "imageURL": "www.facebook.com"
-}
+[
+    {
+        "email": "admin@gmail.com",
+        "password": "Admin123#",
+        "confirmPassword": "Admin123#",
+        "role": "admin",
+        "firstName": "Programming",
+        "lastName": "Hero",
+        "contactNumber": "12345678",
+        "imageURL": "www.programming Hero.com"
+    },
+    {
+        "email": "tanjid@gmail.com",
+        "password": "Tanjid123#",
+        "confirmPassword": "Tanjid123#",
+        "role": "hiring-manager",
+        "firstName": "tanjid",
+        "lastName": "Hossain",
+        "contactNumber": "12345678",
+        "imageURL": "www.tanjid.com"
+    },
+    {
+        "email": "akib@gmail.com",
+        "password": "Akib123#",
+        "confirmPassword": "Akib123#",
+        "role": "hiring-manager",
+        "firstName": "Akib",
+        "lastName": "Islam",
+        "contactNumber": "12345678",
+        "imageURL": "www.akib.com"
+    },
+    {
+        "email": "ratul@gmail.com",
+        "password": "Ratul123#",
+        "confirmPassword": "Ratul123#",
+        "role": "candidate",
+        "firstName": "Ratul",
+        "lastName": "Hasan",
+        "contactNumber": "12345678",
+        "imageURL": "www.ratul.com"
+    },
+    {
+        "email": "istila@gmail.com",
+        "password": "Istila123#",
+        "confirmPassword": "Istila123#",
+        "role": "candidate",
+        "firstName": "Istila",
+        "lastName": "Islam",
+        "contactNumber": "12345678",
+        "imageURL": "www.istila.com"
+    },
+    {
+        "email": "tashfia@gmail.com",
+        "password": "Tashfia123#",
+        "confirmPassword": "Tashfia123#",
+        "role": "candidate",
+        "firstName": "Tashfia",
+        "lastName": "Islam",
+        "contactNumber": "12345678",
+        "imageURL": "www.tashfia.com"
+    }
+]

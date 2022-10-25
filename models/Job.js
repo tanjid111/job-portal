@@ -3,11 +3,7 @@ const validator = require('validator');
 const { ObjectId } = mongoose.Schema.Types;
 
 const jobSchema = mongoose.Schema({
-    user: {
-        email: {
-            type: String,
-            required: true,
-        },
+    hiringManager: {
         id: {
             type: ObjectId,
             ref: 'User',
@@ -18,7 +14,7 @@ const jobSchema = mongoose.Schema({
     candidates: [{
         type: ObjectId,
         ref: "User",
-        unique: true
+
     }],
 
     name: {
@@ -36,7 +32,10 @@ const jobSchema = mongoose.Schema({
         type: String,
         lowercase: true,
         validate: [validator.isEmail, 'Please provide a valid Email']
-    }
+    },
+    location: String,
+    jobType: String,
+    salary: Number
 }, {
     timestamps: true
 })
