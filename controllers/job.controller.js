@@ -1,5 +1,5 @@
 const Job = require('../models/Job');
-const { getJobsService, createJobService, updateJobByIdService, deleteJobByIdService, getAJobService, getJobsByManagerService } = require('../services/job.service');
+const { getJobsService, createJobService, updateJobByIdService, deleteJobByIdService, getAJobService, getJobsByManagerService, getACandidateJobService, applyJobById } = require('../services/job.service');
 
 exports.getJobs = async (req, res, next) => {
     try {
@@ -65,6 +65,24 @@ exports.getJobById = async (req, res, next) => {
         })
     }
 }
+
+exports.getCandidateJobById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const job = await getACandidateJobService(id);
+        res.status(200).json({
+            status: 'success',
+            data: job
+        })
+    } catch (error) {
+        res.status(400).json({
+            status: 'fail',
+            message: 'Cannot get the data',
+            error: error.message
+        })
+    }
+}
+
 exports.getJobsByManager = async (req, res, next) => {
     try {
         const { id } = req.user;
@@ -152,6 +170,29 @@ exports.fileUpload = async (req, res) => {
             status: 'fail',
             message: "Couldn't upload the file",
             error: error.message
+        })
+    }
+}
+
+exports.applyJob = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { id: userId } = req.user;
+
+        const candidate = await applyJobById(id, req.body, userId);
+
+
+        res.status(200).json({
+            status: 'success',
+            data: candidate,
+            message: 'Data created successfully!'
+        })
+
+    } catch (error) {
+
+        res.status(400).json({
+            status: 'fail',
+            message: "Already applied in this job",
         })
     }
 }

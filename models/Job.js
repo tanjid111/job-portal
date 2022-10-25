@@ -15,6 +15,12 @@ const jobSchema = mongoose.Schema({
         }
     },
 
+    candidate: [{
+        type: ObjectId,
+        ref: "User",
+        unique: true
+    }],
+
     name: {
         type: String,
         trim: true,

@@ -8,7 +8,7 @@ const authorization = require('../middlewares/authorization')
 // router.use(verifyToken) //to verify token for all the routes below.
 
 //single file
-router.post('/file-upload', uploader.single('doc'), jobController.fileUpload);
+router.post('/jobs/:id/apply', uploader.single('doc'), jobController.fileUpload);
 
 router.route('/jobs/')
     .get(jobController.getJobs)
@@ -23,9 +23,8 @@ router.route('/manager/jobs/:id')
 router.route('/jobs/:id')
     .patch(verifyToken, authorization('admin', 'hiring-manager'), jobController.updateJobById)
     .delete(verifyToken, authorization('admin', 'hiring-manager'), jobController.deleteJobById)
-    .get(jobController.getJobById)
+    .get(jobController.getCandidateJobById)
 
-// router.route('/jobs/:id/apply')
-// .post(verifyToken, authorization('candidate'), jobController.applyJob)
+router.post("/jobs/:id/", verifyToken, jobController.applyJob);
 
 module.exports = router;
