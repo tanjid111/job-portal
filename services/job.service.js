@@ -1,6 +1,5 @@
 const Job = require('../models/Job')
 const User = require('../models/User')
-const Candidate = require('../models/Candidate')
 
 exports.getJobsService = async (filters, queries) => {
     const jobs = await Job
@@ -25,7 +24,7 @@ exports.getJobsByManagerService = async (id) => {
 }
 
 exports.getAJobService = async (id, adminId) => {
-    const job = await Job.findById({ _id: id });
+    const job = await Job.findById({ _id: id }).populate('candidates');
 
     if (adminId !== job?.user?.id.toString()) {
         return error;
@@ -65,30 +64,26 @@ exports.deleteJobByIdService = async (id) => {
     return result;
 }
 
-// exports.applyJobById = async (jobId, data, userId) => {
-//     // const job = await Job.findOneAndUpdate({ _id: id }, { $set: data })
-//     const candidate = await Candidate.create(data);
-//     const { _id: candidateId } = candidate;
-//     const res = await Candidate.updateOne(
-//         { _id: candidateId },
-//         { $push: { users: userId, jobs: jobId } }
-//     )
-//     return res
-// }
 
 exports.applyJobById = async (jobId, data, userId) => {
     // const job = await Job.findOneAndUpdate({ _id: jobId }, { $set: data })
     const job = await Job.findById({ _id: jobId });
-    const { candidate } = job
-    const present = candidate.indexOf(userId);
+    const { candidates } = job
+    const present = candidates.indexOf(userId);
 
     if (present == -1) {
         const res = await Job.updateOne(
             { _id: jobId },
-            { $push: { candidate: userId } }
+            { $push: { candidates: userId } }
         )
         return res
     }
 
     return error;
 }
+
+
+// exports.candidateResumeService = async (jobId, fileLocation) =>{
+
+
+// }
