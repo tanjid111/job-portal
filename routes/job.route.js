@@ -25,6 +25,6 @@ router.route('/jobs/:id')
     .delete(verifyToken, authorization('admin', 'hiring-manager'), jobController.deleteJobById)
     .get(jobController.getCandidateJobById)
 
-router.post("/jobs/:id/", verifyToken, jobController.applyJob);
+router.post('/jobs/:id/', verifyToken, jobController.applyJob);
 
 module.exports = router;
